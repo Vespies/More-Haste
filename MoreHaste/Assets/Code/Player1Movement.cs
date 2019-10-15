@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player1Movement : MonoBehaviour
 {
-    private float speed;
+    public float speed;
     private Material PlayerBall1;
     // Start is called before the first frame update
     void Start()
@@ -33,38 +33,23 @@ public class Player1Movement : MonoBehaviour
             transform.Translate(Vector3.right * speed);
         }
     }
-    public void OnTriggerExit(Collider other)
-    {
-        if (gameObject.tag == "Tagged")
-        {
-            if (other.gameObject.tag == "NotTagged")
-            {
-                gameObject.tag = "NotTagged";
-                speed = 0.07f;
-                PlayerBall1 = GetComponent<Renderer>().material;
-                PlayerBall1.color = Color.green;
-                //Tagging();
-            }
-        }
-        if (gameObject.tag == "NotTagged")
-        {
-            if (other.gameObject.tag == "Tagged")
-            {
-                gameObject.tag = "Tagged";
-                speed = 0.09f;
-                Debug.Log("worked");
-                PlayerBall1 = GetComponent<Renderer>().material;
-                PlayerBall1.color = Color.red;
-                //Tagging();
-            }
-        }
-    }
+    //public void OnTriggerExit(Collider other)
+    //{
+    //    Debug.Log("it's 1 here " + other);
+    //    if (gameObject.tag =="Tagged" && other.gameObject.tag == "NotTagged")
+    //    {
+    //        gameObject.tag = "NotTagged";
+    //        other.gameObject.tag = "Tagged";
+    //        Tagging();
+    //        OnTriggerExit.enabled = false;
+    //    }
+    //}
     public void Tagging()
     {
         if (gameObject.tag == "Tagged")
         {
             speed = 0.09f;
-            Debug.Log("worked");
+            Debug.Log("1 initial assignment");
             PlayerBall1 = GetComponent<Renderer>().material;
             PlayerBall1.color = Color.red;
         }

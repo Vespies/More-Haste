@@ -64,8 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\Chaser.cs" />
+    <Compile Include="Assets\Code\CollisionTrigger1.cs" />
+    <Compile Include="Assets\Code\CollisionTrigger2.cs" />
     <Compile Include="Assets\Code\Player1Movement.cs" />
     <Compile Include="Assets\Code\Player2Movement.cs" />
+    <Compile Include="Assets\Code\TagMachine.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/MoreHaste/MoreHaste/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

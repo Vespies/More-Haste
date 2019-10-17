@@ -5,7 +5,7 @@ using UnityEngine;
 public class Chaser : MonoBehaviour
 {
     private Transform target;
-    private float speed = 0.002f;
+    private float speed = 0.003f;
     float currentSpeed;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,6 @@ public class Chaser : MonoBehaviour
             Vector3 currentPosition = transform.position;
             Vector3 targetPosition = target.position;
             currentSpeed += Time.deltaTime * speed;
-            //float dist = Vector3.Distance(transform.position, target.position);
             transform.position = Vector3.MoveTowards(currentPosition, targetPosition, currentSpeed);
         }
 

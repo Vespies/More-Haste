@@ -6,7 +6,7 @@ public class Chaser : MonoBehaviour
 {
     private Transform target;
     private float speed = 0.002f;
-    float currentSpeed;
+    float currentSpeed = 0.07f;
     // Start is called before the first frame update
     void Start()
     {

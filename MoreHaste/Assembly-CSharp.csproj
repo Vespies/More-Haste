@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\BeastMovement.cs" />
     <Compile Include="Assets\Code\Chaser.cs" />
     <Compile Include="Assets\Code\CollisionTrigger1.cs" />
     <Compile Include="Assets\Code\CollisionTrigger2.cs" />

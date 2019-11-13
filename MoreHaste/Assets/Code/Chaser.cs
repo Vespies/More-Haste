@@ -7,7 +7,6 @@ public class Chaser : MonoBehaviour
     private Transform target;
     private float speed = 0.002f;
     float currentSpeed = 0.07f;
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -23,7 +22,6 @@ public class Chaser : MonoBehaviour
             Vector3 currentPosition = transform.position;
             Vector3 targetPosition = target.position;
             currentSpeed += Time.deltaTime * speed;
-            //float dist = Vector3.Distance(transform.position, target.position);
             transform.position = Vector3.MoveTowards(currentPosition, targetPosition, currentSpeed);
         }
 

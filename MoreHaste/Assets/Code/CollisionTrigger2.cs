@@ -54,7 +54,7 @@ public class CollisionTrigger2 : MonoBehaviour
             Tagging();
             p1m.enabled = false;
             pb1.color = Color.yellow;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.3f);
             p1m.enabled =true;
             other.gameObject.tag = "Tagged";
             ct1.Tagging();

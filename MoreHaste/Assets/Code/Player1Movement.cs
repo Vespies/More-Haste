@@ -6,44 +6,69 @@ public class Player1Movement : MonoBehaviour
 {
     public float speed;
     private Material PlayerBall1;
+    private float cooldownTime;
+    private bool cooldownState;
     // Start is called before the first frame update
     void Start()
     {
         gameObject.tag = "Tagged";
         Tagging();
+        cooldownState = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 direction = new Vector3(0, 0, 0);
         if (Input.GetKey("w"))
         {
-            transform.Translate(Vector3.forward * speed);
+            direction += Vector3.forward;
+            if (Input.GetKey("space") && cooldownState && gameObject.tag == "Tagged")
+            {
+
+                transform.Translate(0, 0, 5);
+                cooldownTime = 3;
+                StartCoroutine(Cooldown(cooldownTime));
+            }
         }
         if (Input.GetKey("s"))
         {
-            transform.Translate(Vector3.forward * -speed);
+            direction -= Vector3.forward;
+            if (Input.GetKey("space") && cooldownState && gameObject.tag == "Tagged")
+            {
+
+                transform.Translate(0, 0, -5);
+                cooldownTime = 3;
+                StartCoroutine(Cooldown(cooldownTime));
+            }
         }
         if (Input.GetKey("a"))
         {
-            transform.Translate(Vector3.right * -speed);
+            direction -= Vector3.right;
+            if (Input.GetKey("space") && cooldownState && gameObject.tag == "Tagged")
+            {
+
+                transform.Translate(-5, 0, 0);
+                cooldownTime = 3;
+                StartCoroutine(Cooldown(cooldownTime));
+            }
         }
         if (Input.GetKey("d"))
         {
-            transform.Translate(Vector3.right * speed);
+            direction += Vector3.right;
+            if (Input.GetKey("space") && cooldownState && gameObject.tag == "Tagged")
+            {
+
+                transform.Translate(5, 0, 0);
+                cooldownTime = 3;
+                StartCoroutine(Cooldown(cooldownTime));
+            }
+        }
+        if (direction != new Vector3(0, 0, 0))
+        {
+            transform.Translate(direction.normalized * speed);
         }
     }
-    //public void OnTriggerExit(Collider other)
-    //{
-    //    Debug.Log("it's 1 here " + other);
-    //    if (gameObject.tag =="Tagged" && other.gameObject.tag == "NotTagged")
-    //    {
-    //        gameObject.tag = "NotTagged";
-    //        other.gameObject.tag = "Tagged";
-    //        Tagging();
-    //        OnTriggerExit.enabled = false;
-    //    }
-    //}
     public void Tagging()
     {
         if (gameObject.tag == "Tagged")
@@ -59,5 +84,13 @@ public class Player1Movement : MonoBehaviour
             PlayerBall1 = GetComponent<Renderer>().material;
             PlayerBall1.color = Color.green;
         }
+    }
+    public IEnumerator Cooldown(float rcooldownTime)
+    {
+        Debug.Log("routine started");
+        cooldownState = false;
+        yield return new WaitForSeconds(rcooldownTime);
+        cooldownState = true;
+
     }
 }

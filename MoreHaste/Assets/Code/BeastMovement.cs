@@ -18,11 +18,18 @@ public class BeastMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        target = GameObject.FindWithTag("Tagged").transform.position;
-        acceleration =  Vector3.Normalize(target - self) * 0.015f;
+        if (GameObject.FindWithTag("Tagged") != null)
+        {
+            target = GameObject.FindWithTag("Tagged").transform.position;
+            acceleration = Vector3.Normalize(target - self) * 0.005f;
 
-        velocity = velocity * 0.96f + acceleration ;
-        self = self + velocity;
-        transform.position = self;
+            velocity = velocity * 0.98f + acceleration;
+            self = self + velocity;
+            transform.position = self;
+        }
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        Destroy(other.gameObject);
     }
 }

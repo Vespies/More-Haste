@@ -18,17 +18,20 @@ public class TagMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        target =GameObject.FindWithTag("Tagged");
-        targetcollider = target.GetComponent<BoxCollider>();
-        if (target.name == "Player1")
+        if (GameObject.FindWithTag("Tagged") != null)
         {
-            ct1.enabled = true;
-            ct2.enabled = false;
-        }
-        else if (target.name == "Player2")
-        {
-            ct2.enabled = true;
-            ct1.enabled = false;
+            target = GameObject.FindWithTag("Tagged");
+            targetcollider = target.GetComponent<BoxCollider>();
+            if (target.name == "Player1")
+            {
+                ct1.enabled = true;
+                ct2.enabled = false;
+            }
+            else if (target.name == "Player2")
+            {
+                ct2.enabled = true;
+                ct1.enabled = false;
+            }
         }
 
     }

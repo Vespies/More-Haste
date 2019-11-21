@@ -21,9 +21,9 @@ public class BeastMovement : MonoBehaviour
         if (GameObject.FindWithTag("Tagged") != null)
         {
             target = GameObject.FindWithTag("Tagged").transform.position;
-            acceleration = Vector3.Normalize(target - self) * 0.9f * Time.deltaTime;
+            acceleration = Vector3.Normalize(target - self) * 0.5f * Time.deltaTime;
 
-            velocity = velocity * 0.95f + acceleration;
+            velocity = velocity * 0.985f + acceleration;
             self = self + velocity;
             transform.position = self;
         }

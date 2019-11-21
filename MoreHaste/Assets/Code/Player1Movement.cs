@@ -66,21 +66,21 @@ public class Player1Movement : MonoBehaviour
         }
         if (direction != new Vector3(0, 0, 0))
         {
-            transform.Translate(direction.normalized * speed);
+            transform.Translate(direction.normalized * speed * Time.deltaTime);
         }
     }
     public void Tagging()
     {
         if (gameObject.tag == "Tagged")
         {
-            speed = 0.09f;
+            speed = 10.5f;
             Debug.Log("1 initial assignment");
             PlayerBall1 = GetComponent<Renderer>().material;
             PlayerBall1.color = Color.red;
         }
         else
         {
-            speed = 0.07f;
+            speed = 8.5f;
             PlayerBall1 = GetComponent<Renderer>().material;
             PlayerBall1.color = Color.green;
         }

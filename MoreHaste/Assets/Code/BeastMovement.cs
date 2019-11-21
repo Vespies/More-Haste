@@ -21,15 +21,18 @@ public class BeastMovement : MonoBehaviour
         if (GameObject.FindWithTag("Tagged") != null)
         {
             target = GameObject.FindWithTag("Tagged").transform.position;
-            acceleration = Vector3.Normalize(target - self) * 0.005f;
+            acceleration = Vector3.Normalize(target - self) * 0.9f * Time.deltaTime;
 
-            velocity = velocity * 0.98f + acceleration;
+            velocity = velocity * 0.95f + acceleration;
             self = self + velocity;
             transform.position = self;
         }
     }
     public void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);
+        if (other.tag == "Tagged")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

@@ -35,13 +35,13 @@ public class CollisionTrigger2 : MonoBehaviour
         
         if (gameObject.tag == "Tagged")
         {
-            pm2.speed = 0.09f;
+            pm2.speed = 10.5f;
             PlayerBall2.color = Color.red;
             Debug.Log("2 gets all the benefits of being tagged");
         }
         else
         {
-            pm2.speed = 0.07f;
+            pm2.speed = 8.5f;
             PlayerBall2.color = Color.green;
         }
     }

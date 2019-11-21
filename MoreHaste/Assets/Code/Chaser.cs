@@ -5,8 +5,8 @@ using UnityEngine;
 public class Chaser : MonoBehaviour
 {
     private Transform target;
-    private float speed = 0.00001f;
-    float currentSpeed = 0.0001f;
+    private float speed = 0.001f;
+    float currentSpeed = 0.01f;
     void Start()
     {
 
@@ -22,12 +22,15 @@ public class Chaser : MonoBehaviour
             //Debug.Log("target= " + target);
             Vector3 currentPosition = transform.position;
             Vector3 targetPosition = target.position;
-            currentSpeed += speed;
+            currentSpeed += speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(currentPosition, targetPosition, currentSpeed);
         }
     }
     public void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);
+        if (other.tag == "Tagged")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

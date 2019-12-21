@@ -23,7 +23,7 @@ public class BeastMovement : MonoBehaviour
             target = GameObject.FindWithTag("Tagged").transform.position;
             acceleration = Vector3.Normalize(target - self) * 0.5f * Time.deltaTime;
 
-            velocity = velocity * 0.985f + acceleration;
+            velocity = velocity * 0.99f + acceleration;
             self = self + velocity;
             transform.position = self;
         }

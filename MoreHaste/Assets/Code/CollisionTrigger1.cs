@@ -24,7 +24,7 @@ public class CollisionTrigger1 : MonoBehaviour
     {
 
     }
-    public void OnTriggerExit(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         //Debug.Log("it's trigger 1 here " + other);
         StartCoroutine(TagManager(other));
@@ -48,12 +48,12 @@ public class CollisionTrigger1 : MonoBehaviour
     {
         if (gameObject.tag == "Tagged" && other.gameObject.tag == "NotTagged")
         {
-            gameObject.tag = "NotTagged";
             Debug.Log("1 becomes not tagged and 2 becomes tagged");
-            Tagging();
-            p2m.enabled = false;
+            other.gameObject.tag = "MidTagged";
             pb2.color = Color.yellow;
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(1);
+            gameObject.tag = "NotTagged";
+            Tagging();
             p2m.enabled = true;
             other.gameObject.tag = "Tagged";
             ct2.Tagging();

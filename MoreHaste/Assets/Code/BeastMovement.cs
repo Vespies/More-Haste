@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BeastMovement : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BeastMovement : MonoBehaviour
     private Vector3 self;
     private Vector3 velocity;
     private Vector3 acceleration;
+    public UnityEvent endGame;
 
     void Start()
     {
@@ -33,6 +35,7 @@ public class BeastMovement : MonoBehaviour
         if (other.tag == "Tagged")
         {
             Destroy(other.gameObject);
+            endGame.Invoke();
         }
     }
 }

@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Chaser : MonoBehaviour
 {
     private Transform target;
     private float speed = 0.001f;
     float currentSpeed = 0.01f;
+    public UnityEvent endGame;
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (GameObject.FindWithTag("Tagged") != null)
@@ -31,6 +32,8 @@ public class Chaser : MonoBehaviour
         if (other.tag == "Tagged")
         {
             Destroy(other.gameObject);
+            endGame.Invoke();
         }
     }
+
 }

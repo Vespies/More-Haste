@@ -7,10 +7,12 @@ public class Menu : MonoBehaviour
 {
     public void OpenRules()
     {
+        //Loads scene number 1
         SceneManager.LoadScene(1);
     }
     public void OpenGame()
     {
+        //Loads scene number 2
         SceneManager.LoadScene(2);
     }
 }

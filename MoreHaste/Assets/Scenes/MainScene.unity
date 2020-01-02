@@ -330,6 +330,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 41.433002
       objectReference: {fileID: 0}
+    - target: {fileID: 6723051057289187024, guid: 0f184d3695e02e34f851732a7cf13dfb,
+        type: 3}
+      propertyPath: endGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1512487965}
+    - target: {fileID: 6723051057289187024, guid: 0f184d3695e02e34f851732a7cf13dfb,
+        type: 3}
+      propertyPath: endGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f184d3695e02e34f851732a7cf13dfb, type: 3}
 --- !u!1 &356531630
@@ -916,6 +926,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723051057289187024, guid: 0f184d3695e02e34f851732a7cf13dfb,
+        type: 3}
+      propertyPath: endGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1512487965}
+    - target: {fileID: 6723051057289187024, guid: 0f184d3695e02e34f851732a7cf13dfb,
+        type: 3}
+      propertyPath: endGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndGame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f184d3695e02e34f851732a7cf13dfb, type: 3}
@@ -1507,6 +1527,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6723051057289187024, guid: 0f184d3695e02e34f851732a7cf13dfb,
+        type: 3}
+      propertyPath: endGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1512487965}
+    - target: {fileID: 6723051057289187024, guid: 0f184d3695e02e34f851732a7cf13dfb,
+        type: 3}
+      propertyPath: endGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f184d3695e02e34f851732a7cf13dfb, type: 3}
 --- !u!1001 &6723051056469098567
@@ -1576,10 +1606,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6723051057289187036, guid: 0f184d3695e02e34f851732a7cf13dfb,
+    - target: {fileID: 6723051057289187024, guid: 0f184d3695e02e34f851732a7cf13dfb,
         type: 3}
-      propertyPath: m_LocalScale.z
-      value: 41.433002
-      objectReference: {fileID: 0}
+      propertyPath: endGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1512487965}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f184d3695e02e34f851732a7cf13dfb, type: 3}

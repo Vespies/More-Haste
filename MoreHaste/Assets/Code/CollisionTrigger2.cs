@@ -12,6 +12,7 @@ public class CollisionTrigger2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Finding all the necessary components
         pb1 = GameObject.Find("Player1").GetComponent<Renderer>().material;
         PlayerBall2 = GetComponent<Renderer>().material;
         ct1 = GameObject.Find("Player1").GetComponent<CollisionTrigger1>();
@@ -26,13 +27,13 @@ public class CollisionTrigger2 : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
+        //When collision is made, start coroutine
         StartCoroutine(TagManager(other));
-        //Debug.Log("it's trigger 2 here " + other);
 
     }
     public void Tagging()
     {
-        
+        //Depending on the tag, different speed, and colour is assigned
         if (gameObject.tag == "Tagged")
         {
             pm2.speed = 10.5f;
@@ -49,16 +50,13 @@ public class CollisionTrigger2 : MonoBehaviour
     {
         if (gameObject.tag == "Tagged" && other.gameObject.tag == "NotTagged")
         {
-
-            Debug.Log("2 becomes not tagged and 1 becomes tagged");
-            other.gameObject.tag = "MidTagged";
-            pb1.color = Color.yellow;
-            yield return new WaitForSeconds(1);
-            gameObject.tag = "NotTagged";
-            Tagging();
-            p1m.enabled =true;
-            other.gameObject.tag = "Tagged";
-            ct1.Tagging();
+            other.gameObject.tag = "MidTagged"; //The other player becomes neither tagged nor nottagged
+            pb1.color = Color.yellow; //The other player changes colour to yellow
+            yield return new WaitForSeconds(1); //After one second
+            gameObject.tag = "NotTagged"; //This one then becomes loses its tagged and gains nottagged
+            Tagging(); //Assignment
+            other.gameObject.tag = "Tagged"; //The other player becomes tagged which makes the blues chase them
+            ct1.Tagging(); //The player who became tagged does their tagging
         }
     }
 }

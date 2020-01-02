@@ -11,6 +11,7 @@ public class Player1Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //This one starts as tagged and gets all benefits of being tagged
         gameObject.tag = "Tagged";
         Tagging();
         cooldownState = true;
@@ -19,6 +20,7 @@ public class Player1Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Each wasd movement direction can be used to teleport with space as long as player1 is the one tagged
         Vector3 direction = new Vector3(0, 0, 0);
         if (Input.GetKey("w"))
         {
@@ -66,11 +68,13 @@ public class Player1Movement : MonoBehaviour
         }
         if (direction != new Vector3(0, 0, 0))
         {
+            //Normalizing diagonal speed
             transform.Translate(direction.normalized * speed * Time.deltaTime);
         }
     }
     public void Tagging()
     {
+        //Depending on the tag, different speed, and colour is assigned
         if (gameObject.tag == "Tagged")
         {
             speed = 10.5f;
@@ -87,6 +91,7 @@ public class Player1Movement : MonoBehaviour
     }
     public IEnumerator Cooldown(float rcooldownTime)
     {
+        //Cooldown introduces a three second window during which teleport is not avaliable
         Debug.Log("routine started");
         cooldownState = false;
         yield return new WaitForSeconds(rcooldownTime);

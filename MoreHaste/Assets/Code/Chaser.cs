@@ -16,11 +16,12 @@ public class Chaser : MonoBehaviour
 
     void Update()
     {
+        //As long as there is a tagged player, it becomes the target
         if (GameObject.FindWithTag("Tagged") != null)
             target = GameObject.FindWithTag("Tagged").transform;
         if(target != null)
         {
-            //Debug.Log("target= " + target);
+            //As long as there is a target, move towards it with increasing speed
             Vector3 currentPosition = transform.position;
             Vector3 targetPosition = target.position;
             currentSpeed += speed * Time.deltaTime;
@@ -29,6 +30,7 @@ public class Chaser : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
+        //When red is caught, it is destroyed and press r to restart pops up
         if (other.tag == "Tagged")
         {
             Destroy(other.gameObject);

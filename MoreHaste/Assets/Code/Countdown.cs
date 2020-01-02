@@ -15,6 +15,7 @@ public class Countdown : MonoBehaviour
     float currentTime = 0f;
     void Start()
     {
+        //At the start all movement is disabled and the timer starts from the max number
         currentTime = startingTime;
         p1m.enabled = false;
         p2m.enabled = false;
@@ -26,18 +27,20 @@ public class Countdown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //The colour of text starts as red and starts timer starts counting down each second
         ct.color = Color.red;
         currentTime -= 1 * Time.deltaTime;
         ct.text = currentTime.ToString("0");
         if (currentTime <= 0)
         {
+            //Once the timer reaches 0, the text becomes transparent
             currentTime = 0;
             ct.color = Color.clear;
         }
     }
     public IEnumerator Counting(float rcooldownTime)
     {
-        Debug.Log("start");
+        //After the timer is complete, all the movement is turned on again
         yield return new WaitForSeconds(rcooldownTime);
         p1m.enabled = true;
         p2m.enabled = true;

@@ -10,10 +10,12 @@ public class Restart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //The text starts as transparent
         rt.color = Color.clear;
     }
     void Update()
     {
+        //Pressing r reloads the scene
         if (Input.GetKey("r"))
         {
             SceneManager.LoadScene(2);
@@ -21,6 +23,7 @@ public class Restart : MonoBehaviour
     }
     public void EndGame()
     {
+        //Once end game is called, the text appears
         rt.color = Color.green;
     }
 }

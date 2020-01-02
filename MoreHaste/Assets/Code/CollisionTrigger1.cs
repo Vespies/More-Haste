@@ -8,15 +8,14 @@ public class CollisionTrigger1 : MonoBehaviour
     private Material pb2;
     public Player1Movement p1m;
     public CollisionTrigger2 ct2;
-    public Player2Movement p2m;
     // Start is called before the first frame update
     void Start()
     {
+        //Finding all the necessary components
         pb2 = GameObject.Find("Player2").GetComponent<Renderer>().material;
         PlayerBall1 = GetComponent<Renderer>().material;
         ct2 = GameObject.Find("Player2").GetComponent<CollisionTrigger2>();
         p1m = GameObject.Find("Player1").GetComponent<Player1Movement>();
-        p2m = GameObject.Find("Player2").GetComponent<Player2Movement>();
     }
 
     // Update is called once per frame
@@ -26,12 +25,12 @@ public class CollisionTrigger1 : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("it's trigger 1 here " + other);
+        //When collision is made, start coroutine
         StartCoroutine(TagManager(other));
     }
     public void Tagging()
     {
-
+        //Depending on the tag, different speed, and colour is assigned
         if (gameObject.tag == "Tagged")
         {
             p1m.speed = 10.5f;
@@ -46,17 +45,16 @@ public class CollisionTrigger1 : MonoBehaviour
     }
     public IEnumerator TagManager(Collider other)
     {
+        //When this object is tagged and the one with which the collision us made is nottagged
         if (gameObject.tag == "Tagged" && other.gameObject.tag == "NotTagged")
         {
-            Debug.Log("1 becomes not tagged and 2 becomes tagged");
-            other.gameObject.tag = "MidTagged";
-            pb2.color = Color.yellow;
-            yield return new WaitForSeconds(1);
-            gameObject.tag = "NotTagged";
-            Tagging();
-            p2m.enabled = true;
-            other.gameObject.tag = "Tagged";
-            ct2.Tagging();
+            other.gameObject.tag = "MidTagged"; //The other player becomes neither tagged nor nottagged
+            pb2.color = Color.yellow; //It changes colour to yellow
+            yield return new WaitForSeconds(1); //After one second
+            gameObject.tag = "NotTagged"; //This one then becomes loses its tagged and gains nottagged
+            Tagging(); //Assignment
+            other.gameObject.tag = "Tagged"; //The other player becomes tagged which makes the blues chase them
+            ct2.Tagging(); //The player who became tagged does their tagging
         }
     }
 }

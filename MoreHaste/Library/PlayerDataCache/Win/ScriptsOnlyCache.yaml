@@ -13,7 +13,6 @@ ScriptsOnlyBuild:
     - Restart
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -132,7 +131,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11346}
     - Class: 114
-      Script: {instanceID: 12474}
+      Script: {instanceID: 12522}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -403,7 +402,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: c2654b8516f34c6bdd80f601f77947e6
+      Hash: 00dc370252bd6e2c867b90f693fcc5b0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CollisionTrigger1
@@ -577,7 +576,7 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: f79884fb6b18e1f073a8805c12a7e4fd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Out
@@ -676,4 +675,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Rules.unity
   - Assets/Scenes/MainScene.unity
-  playerPath: D:/New folder/MoreHaste.exe
+  playerPath: D:/MoreHaste/Build/MoreHaste.exe
